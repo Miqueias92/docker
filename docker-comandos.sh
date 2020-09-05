@@ -53,13 +53,20 @@
 # - remover container (apagar)
 	docker rm [containerid]
 
+# - remover/apagar uma imagem 
+	docker rmi [image id] 
+
+# - criar uma imagem a partir de um container (Exercício 02)
+	docker commit 23e0538ad503 apache2/debian:10
+
+# - salvar uma imagem em um arquivo tar (Exercício 02)
+	docker save -o bkp-apache-debian10.tar apache2/debian:10
+
+# - adicionar imagem salva no docker images (Exercício 02)
+	docker load < bkp-apache-debian10.tar
 
 
-
-
-
-
-####################      Exercicío da aula          ##############
+####################      Exercicío 01    ##############
 
 # - criar container e configurar para escutar em uma porta externa        
 #	         porta externa/interna
@@ -94,7 +101,33 @@
     docker commit [CONTAINERID]
 
 
+################################## Exercício 02 ################################
 
+
+# (Criar uma imagem/modificar)
+# Objetivo: modificar um container e criar uma imagem modificada do mesmo
+
+# - criação do container
+	docker run -ti debian:10
+
+# - atualizar repositório apt
+	apt-get update
+
+# - instalar ferramentas (modificações no container)
+	apt-get install apache2 vim net-tools -y
+
+# - criar uma imagem do container modificado
+	docker commit 23e0538ad503 apache2/debian:10
 	
+# - visualizar imagem criada
+	docker images
 
+# - impacotar imagem criada (caso queira usar em outro servidor/máquina)
+	docker save -o bkp-apache-debian10.tar apache2/debian:10
+
+# - descompactar imagem salva em um novo servidor/máquina
+	docker load < bkp-apache-debian10.tar
+
+# - criar um novo container com a imagem
+	docker run -ti apache2/debian:10
 
