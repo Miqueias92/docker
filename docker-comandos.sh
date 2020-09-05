@@ -45,10 +45,22 @@
 	/etc/init.d/nginx restart
 
 # - navegar até a pasta www
-	cd /var/www/
+	cd /var/www/html
 
 # - instalar o vim
 	apt-get install vim
+
+# - criar um arquivo html
+
+
+# - sair do cotainer sem mata-lo
+    ctrl + p + q
+
+# - acessar o navegador
+
+# - fazer commit para salvar as alterações que foram feitas no container
+    docker commit [CONTAINERID]
+
 
 
 	
