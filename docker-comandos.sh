@@ -26,6 +26,38 @@
 # - voltar para o container
 	docker attach [container id]
 
+# - renomear containers
+	docker rename [conatinerid] [new_container_name]
+
+# - pesquisar se a imagem uma imagem existe no dockerhub
+	docker search [name]
+	#ex:
+	docker search elasticsearch
+
+# - saber quais processos estão rodando no container
+	docker top [containerid]
+
+# - executar comandos no container sem attachar
+	docker exec [conatinerid] [comand]
+	#exe:
+	docker exec 366e3be8f474 /etc/init.d/nginx restart
+
+# - ver as coisas novas (arquivos) que foram adicionadas ao container (diff)
+	docker diff [containerid]
+
+# - saber quanto de recursos (cpu/mem) os containers estão usando
+	docker stats [containerid]
+	#todos os containers
+	docker stats
+
+# - remover container (apagar)
+	docker rm [containerid]
+
+
+
+
+
+
 
 ####################      Exercicío da aula          ##############
 
