@@ -131,3 +131,14 @@
 # - criar um novo container com a imagem
 	docker run -ti apache2/debian:10
 
+
+######################################## DUMP de um banco postgres direto de um contatiner ########################################
+
+
+# Pegar dump do banco de dados de um banco em docker
+
+	docker exec -t [container_name] pg_dumpall -c -U admin > FILE_NAME.sql
+
+# Como restaurar o dump em um container?
+
+ 	cat FILE_NAME.sql | docker exec -i [container_name] psql -U admin 
